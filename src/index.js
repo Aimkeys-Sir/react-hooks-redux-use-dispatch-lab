@@ -2,11 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 
 import restaurantsReducer from "./features/restaurant/restaurantsSlice";
 
-const store = createStore(restaurantsReducer);
+const store = configureStore({
+  reducer:{
+    restaurantsReducer
+  }
+});
 
 ReactDOM.render(
   <Provider store={store}>
